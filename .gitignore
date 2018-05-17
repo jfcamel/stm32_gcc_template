@@ -1,0 +1,8 @@
+# work directories
+/build*
+
+# binaries
+*.o
+*.obj
+*.a
+*.bin
