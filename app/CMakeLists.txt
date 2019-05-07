@@ -11,9 +11,8 @@ set(SRC
   ${CMAKE_CURRENT_LIST_DIR}/src/startup_stm32f40_41xxx.s
 )
 
-set(CMAKE_C_FLAGS "-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O1 -fmessage-length=0 -fsigned-char -fno-move-loop-invariants -gstrict-dwarf -ffunction-sections -fdata-sections")
-# SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS} -DNDEBUG" )
-# SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -g3")
+set_property(SOURCE ${CMAKE_CURRENT_LIST_DIR}/src/startup_stm32f40_41xxx.s PROPERTY LANGUAGE C)
+
 set(CMAKE_CXX_LINK_FLAGS "-T${CMAKE_CURRENT_LIST_DIR}/src/LinkerScript.ld -fno-exceptions -fno-rtti")
 set(CMAKE_C_LINK_FLAGS "-T${CMAKE_CURRENT_LIST_DIR}/src/LinkerScript.ld -u _printf_float -Wl,--gc-sections --specs=rdimon.specs -u _scan_float -u _printf_float -Wl,--start-group -lgcc -lc -lc -lm -lrdimon ")
 
